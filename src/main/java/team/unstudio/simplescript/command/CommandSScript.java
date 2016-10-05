@@ -34,79 +34,87 @@ public final class CommandSScript implements CommandExecutor, TabCompleter {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (!(sender instanceof Player)) {
 			sender.sendMessage("");
+		} else if (!sender.hasPermission("simplescript.script")) {
+			sender.sendMessage("");
 		} else if (args.length == 0) {
-			//
+			displayHelp(sender);
 		} else {
 			switch (args[0].toLowerCase()) {
 			case "create":
-				if (!sender.hasPermission("simplescript.script.create")) {
-					sender.sendMessage("");
-				} else if (args.length < 2) {
-					sender.sendMessage("");
+				if (sender.hasPermission("simplescript.script.create")) {
+					if (args.length == 2) {
+						ScriptManager.getInstance().getEditing().put((Player) sender, new Script(args[1]));
+						sender.sendMessage("");
+					} else {
+						sender.sendMessage("");
+					}
 				} else {
-					ScriptManager.getInstance().getEditing().put((Player) sender, new Script(args[1]));
 					sender.sendMessage("");
 				}
 				break;
 			case "add":
 				if (sender.hasPermission("simplescript.script.add")) {
-					//
+					// TODO add
 				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "remove":
 				if (sender.hasPermission("simplescript.script.remove")) {
-					//
+					// TODO remove
 				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "delete":
 				if (sender.hasPermission("simplescript.script.delete")) {
-					//
+					// TODO delete
 				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "save":
 				if (sender.hasPermission("simplescript.script.save")) {
-					//
+					// TODO save
 				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "edit":
 				if (sender.hasPermission("simplescript.script.edit")) {
-					//
+					// TODO edit
 				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "view":
 				if (sender.hasPermission("simplescript.script.view")) {
-					//
+					// TODO view
 				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "reload":
 				if (sender.hasPermission("simplescript.reload")) {
-					//
+					// TODO reload
 				} else {
 					sender.sendMessage("");
 				}
 				break;
-			//"default" is including "help" 
+			// "default" is including "help"
 			default:
-				if (sender.hasPermission("simplescript.script.help")) {
-					//
-				} else {
-					sender.sendMessage("");
-				}
+				displayHelp(sender);
 				break;
 			}
 		}
 		return true;
+	}
+
+	public void displayHelp(CommandSender sender) {
+		if (sender.hasPermission("simplescript.script.help")) {
+			// TODO display help
+		} else {
+			sender.sendMessage("");
+		}
 	}
 }
