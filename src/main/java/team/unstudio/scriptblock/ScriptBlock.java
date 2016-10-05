@@ -25,19 +25,24 @@ public final class ScriptBlock extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
-			String lowerLabel = label.toLowerCase();
-			if (lowerLabel.equals("sbinteract")) {
+			switch (label.toLowerCase()) {
+			case "sbinteract":
 				if (player.hasPermission("sb.sbinteract")) {
 					getLogger().info("§atest");
 				} else {
 					getLogger().info("§c你没有这样做的权限!");
 				}
-			} else if (lowerLabel.equals("sbwalk")) {
+				break;
+			case "sbwalk":
 				if (player.hasPermission("sb.sbwalk")) {
 					getLogger().info("§atest");
 				} else {
 					getLogger().info("§c你没有这样做的权限!");
 				}
+				break;
+
+			default:
+				break;
 			}
 		} else {
 			getLogger().info("§4该命令只能玩家执行");
