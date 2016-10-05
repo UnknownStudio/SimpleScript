@@ -16,6 +16,9 @@ public final class SimpleScript extends JavaPlugin {
 
 	@Override
 	public final void onEnable() {
+		saveDefaultConfig();
+		SSConfig.reload();
+		
 		CommandSScript commandSScript = new CommandSScript();
 		getCommand("sscript").setExecutor(commandSScript);
 		getCommand("sscript").setTabCompleter(commandSScript);
