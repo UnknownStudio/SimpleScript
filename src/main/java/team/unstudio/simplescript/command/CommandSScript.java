@@ -1,5 +1,6 @@
 package team.unstudio.simplescript.command;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -11,12 +12,18 @@ import org.bukkit.entity.Player;
 import team.unstudio.simplescript.script.Script;
 import team.unstudio.simplescript.script.ScriptManager;
 
+import com.google.common.collect.Lists;
+
 public final class CommandSScript implements CommandExecutor,TabCompleter{
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-		
-		return null;
+		switch (args.length) {
+		case 0:
+			return Arrays.asList("help","create","add","remove","delete","save","edit","view","reload");
+		default:
+			return Lists.newArrayList();
+		}
 	}
 
 	@Override
