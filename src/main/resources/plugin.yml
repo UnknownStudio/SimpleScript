@@ -8,7 +8,6 @@ command:
     description: '为一个方块添加点击执行命令'
     permisson: 'sb.sbinteract'
     permisson-message: '你没有这样做的权限!'
-
   sbwalk:
       usage: '/sbwalk <create/add/remove/view/reload>'
       description: '为一个方块添加走过方块执行命令'
