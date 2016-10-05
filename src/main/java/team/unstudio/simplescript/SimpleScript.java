@@ -28,6 +28,6 @@ public final class SimpleScript extends JavaPlugin {
 
 	@Override
 	public final void onDisable() {
-
+		// TODO Disable the plugin
 	}
 }
