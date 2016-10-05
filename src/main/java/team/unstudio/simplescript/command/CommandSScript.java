@@ -41,7 +41,7 @@ public final class CommandSScript implements CommandExecutor, TabCompleter {
 			case "create":
 				if (!sender.hasPermission("simplescript.script.create")) {
 					sender.sendMessage("");
-				} else if (args.length != 2) {
+				} else if (args.length < 2) {
 					sender.sendMessage("");
 				} else {
 					ScriptManager.getInstance().getEditing().put((Player) sender, new Script(args[1]));

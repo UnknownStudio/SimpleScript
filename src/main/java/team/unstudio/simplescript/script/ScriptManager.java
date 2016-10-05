@@ -35,6 +35,11 @@ public final class ScriptManager {
 		return scripts;
 	}
 	
+	public Script getScript(String name){
+		for(Script script:scripts) if(script.getName().equalsIgnoreCase(name)) return script;
+		return null;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public synchronized void reload(){
 		scripts.clear();
