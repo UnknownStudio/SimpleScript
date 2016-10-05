@@ -1,6 +1,5 @@
 package team.unstudio.simplescript.script;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +7,8 @@ import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
+
+import com.google.common.collect.Maps;
 
 public class Script implements ConfigurationSerializable {
 
@@ -17,7 +18,7 @@ public class Script implements ConfigurationSerializable {
 	
 	@Override
 	public Map<String, Object> serialize() {
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = Maps.newHashMap();
 		map.put("name", name);
 		return map;
 	}
