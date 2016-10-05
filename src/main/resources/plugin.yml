@@ -1,5 +1,5 @@
-name: ScriptBlock-Reloaded
-main: team.unstudio.scriptblock.ScriptBlock
+name: SimpleScript
+main: team.unstudio.simplescript.SimpleScript
 version: 1.0.0-SNAPSHOT
 author: [UnknownDomain, mousesrc, ningwang747]
 command:
