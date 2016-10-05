@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
-public class CommandSBinding implements CommandExecutor,TabCompleter{
+public final class CommandSBinding implements CommandExecutor,TabCompleter{
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {

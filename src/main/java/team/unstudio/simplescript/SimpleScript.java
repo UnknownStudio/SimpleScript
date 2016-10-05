@@ -6,9 +6,12 @@ import team.unstudio.simplescript.command.CommandSBinding;
 import team.unstudio.simplescript.command.CommandSScript;
 
 public final class SimpleScript extends JavaPlugin {
+	
+	public static SimpleScript INSTANCE;
+	
 	@Override
 	public final void onLoad() {
-
+		INSTANCE = this;
 	}
 
 	@Override
