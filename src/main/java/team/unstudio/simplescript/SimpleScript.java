@@ -16,11 +16,11 @@ public final class SimpleScript extends JavaPlugin {
 
 	@Override
 	public final void onEnable() {
-		//Config load
+		//Load configuration
 		saveDefaultConfig();
 		SSConfig.reload();
 		
-		//Register "sbinding" of TabCompleter and CommandExecutor
+		//Register "sscript" of TabCompleter and CommandExecutor
 		CommandSScript commandSScript = new CommandSScript();
 		getCommand("sscript").setExecutor(commandSScript);
 		getCommand("sscript").setTabCompleter(commandSScript);
