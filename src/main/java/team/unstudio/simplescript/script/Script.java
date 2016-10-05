@@ -19,6 +19,7 @@ public class Script implements ConfigurationSerializable {
 	public Map<String, Object> serialize() {
 		Map<String, Object> map = new HashMap<>();
 		map.put("name", name);
+		map.put("commands", commands);
 		return map;
 	}
 
@@ -34,8 +35,10 @@ public class Script implements ConfigurationSerializable {
 	private List<ScriptCommand> commands;
 	private boolean editing = false;
 
+	@SuppressWarnings("unchecked")
 	public Script(Map<String, Object> map) {
 		name = (String) map.get("name");
+		commands.addAll((List<? extends ScriptCommand>) map.get("commands"));
 	}
 	
 	public Script(String name) {
