@@ -2,7 +2,7 @@ package team.unstudio.simplescript;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
-public class SSConfig {
+public final class SSConfig {
 	
 	public static void reload(){
 		SimpleScript.INSTANCE.reloadConfig();

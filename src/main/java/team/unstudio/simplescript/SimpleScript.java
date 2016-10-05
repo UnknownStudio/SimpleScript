@@ -4,6 +4,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import team.unstudio.simplescript.command.CommandSBinding;
 import team.unstudio.simplescript.command.CommandSScript;
+import team.unstudio.simplescript.listener.SSListener;
+import team.unstudio.simplescript.script.ScriptManager;
 
 public final class SimpleScript extends JavaPlugin {
 	
@@ -24,14 +26,19 @@ public final class SimpleScript extends JavaPlugin {
 		CommandSScript commandSScript = new CommandSScript();
 		getCommand("sscript").setExecutor(commandSScript);
 		getCommand("sscript").setTabCompleter(commandSScript);
+		
 		//Register "sbinding" of TabCompleter and CommandExecutor
 		CommandSBinding commandSBinding = new CommandSBinding();
 		getCommand("sbinding").setExecutor(commandSBinding);
 		getCommand("sbinding").setTabCompleter(commandSBinding);
+		
+		getServer().getPluginManager().registerEvents(new SSListener(), this);
+		
+		ScriptManager.getInstance().reload();
 	}
 
 	@Override
 	public final void onDisable() {
-		// TODO Disable the plugin
+		ScriptManager.getInstance().save();
 	}
 }
