@@ -18,11 +18,13 @@ public final class CommandSScript implements CommandExecutor, TabCompleter {
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-		List<String> tabList = Lists.newArrayList();
+		List<String> tabList;
 		switch (args.length) {
 		case 0:
 			tabList = Arrays.asList("help", "create", "add", "remove", "delete", "save", "edit", "view", "reload");
+			break;
 		default:
+			tabList = Lists.newArrayList();
 			break;
 		}
 		return tabList;
