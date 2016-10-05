@@ -1,6 +1,6 @@
 # SimpleScript
 
-## 指令
+## Commands
 ### /sscript
   For script actions such as creating, editing, deleting, etc.
 #### create
