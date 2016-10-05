@@ -1,5 +1,6 @@
 package team.unstudio.simplescript;
 
+import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import team.unstudio.simplescript.command.CommandSBinding;
@@ -32,6 +33,7 @@ public final class SimpleScript extends JavaPlugin {
 		getCommand("sbinding").setExecutor(commandSBinding);
 		getCommand("sbinding").setTabCompleter(commandSBinding);
 		
+		//Register Listener
 		getServer().getPluginManager().registerEvents(new SSListener(), this);
 		
 		ScriptManager.getInstance().reload();
@@ -40,5 +42,6 @@ public final class SimpleScript extends JavaPlugin {
 	@Override
 	public final void onDisable() {
 		ScriptManager.getInstance().save();
+		HandlerList.unregisterAll();
 	}
 }
