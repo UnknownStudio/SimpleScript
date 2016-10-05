@@ -1,1 +1,1 @@
-# ScriptBlockReloaded
+# SimpleScript
