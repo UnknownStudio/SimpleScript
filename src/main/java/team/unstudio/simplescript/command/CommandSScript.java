@@ -16,7 +16,7 @@ public final class CommandSScript implements CommandExecutor,TabCompleter{
 	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
 		switch (args.length) {
 		case 0:
-			return Arrays.asList("help","create","add","remove","delete","view","reload");
+			return Arrays.asList("help","create","add","remove","delete","save","edit","view","reload");
 		default:
 			return Lists.newArrayList();
 		}
