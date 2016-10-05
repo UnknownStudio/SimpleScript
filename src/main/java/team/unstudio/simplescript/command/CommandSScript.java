@@ -49,43 +49,59 @@ public final class CommandSScript implements CommandExecutor, TabCompleter {
 				}
 				break;
 			case "add":
-				if (!sender.hasPermission("simplescript.script.add")) {
+				if (sender.hasPermission("simplescript.script.add")) {
+					//
+				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "remove":
-				if (!sender.hasPermission("simplescript.script.remove")) {
+				if (sender.hasPermission("simplescript.script.remove")) {
+					//
+				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "delete":
-				if (!sender.hasPermission("simplescript.script.delete")) {
+				if (sender.hasPermission("simplescript.script.delete")) {
+					//
+				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "save":
-				if (!sender.hasPermission("simplescript.script.save")) {
+				if (sender.hasPermission("simplescript.script.save")) {
+					//
+				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "edit":
-				if (!sender.hasPermission("simplescript.script.edit")) {
+				if (sender.hasPermission("simplescript.script.edit")) {
+					//
+				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "view":
-				if (!sender.hasPermission("simplescript.script.view")) {
+				if (sender.hasPermission("simplescript.script.view")) {
+					//
+				} else {
 					sender.sendMessage("");
 				}
 				break;
 			case "reload":
-				if (!sender.hasPermission("simplescript.reload")) {
+				if (sender.hasPermission("simplescript.reload")) {
+					//
+				} else {
 					sender.sendMessage("");
 				}
 				break;
-			case "help":
+			//"default" is including "help" 
 			default:
-				if (!sender.hasPermission("simplescript.script.help")) {
+				if (sender.hasPermission("simplescript.script.help")) {
+					//
+				} else {
 					sender.sendMessage("");
 				}
 				break;

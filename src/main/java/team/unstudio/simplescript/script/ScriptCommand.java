@@ -9,6 +9,8 @@ import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
 
+import com.google.common.collect.Maps;
+
 public abstract class ScriptCommand implements ConfigurationSerializable{
 	
 	private String[] args = new String[0];
@@ -25,7 +27,7 @@ public abstract class ScriptCommand implements ConfigurationSerializable{
 	
 	@Override
 	public Map<String, Object> serialize() {
-		Map<String,Object> map = new HashMap<>();
+		Map<String,Object> map = Maps.newHashMap();
 		map.put("operator", getOperator(this));
 		map.put("args", Arrays.asList(args));
 		return map;
