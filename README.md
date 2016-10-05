@@ -2,7 +2,7 @@
 
 ## 指令
 ### /sscript
-  用于脚本的创建、编辑、删除等操作
+  For script actions such as creating, editing, deleting, etc.
 #### create
 #### add
 #### remove
@@ -10,6 +10,6 @@
 #### view
 #### reload
 ### /sbinding
-  用于将一个脚本绑定至方块、物品以及其他的行为
+  For a script that binds to the block, items and other behavior
 #### block
 #### item
