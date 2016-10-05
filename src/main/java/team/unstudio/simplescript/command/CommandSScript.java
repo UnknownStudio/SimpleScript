@@ -48,43 +48,36 @@ public final class CommandSScript implements CommandExecutor, TabCompleter {
 				if (!sender.hasPermission("simplescript.script.add")) {
 					sender.sendMessage("");
 				}
-
 				break;
 			case "remove":
 				if (!sender.hasPermission("simplescript.script.remove")) {
 					sender.sendMessage("");
 				}
-
 				break;
 			case "delete":
 				if (!sender.hasPermission("simplescript.script.delete")) {
 					sender.sendMessage("");
 				}
-
 				break;
 			case "save":
 				if (!sender.hasPermission("simplescript.script.save")) {
 					sender.sendMessage("");
 				}
-
 				break;
 			case "edit":
 				if (!sender.hasPermission("simplescript.script.edit")) {
 					sender.sendMessage("");
 				}
-
 				break;
 			case "view":
 				if (!sender.hasPermission("simplescript.script.view")) {
 					sender.sendMessage("");
 				}
-
 				break;
 			case "reload":
 				if (!sender.hasPermission("simplescript.reload")) {
 					sender.sendMessage("");
 				}
-
 				break;
 			case "help":
 			default:
