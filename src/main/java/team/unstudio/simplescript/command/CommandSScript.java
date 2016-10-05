@@ -18,6 +18,6 @@ public final class CommandSScript implements CommandExecutor,TabCompleter{
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		// TODO 自动生成的方法存根
-		return false;
+		return true;
 	}
 }
