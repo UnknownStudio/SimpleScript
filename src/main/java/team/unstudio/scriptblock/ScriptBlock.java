@@ -2,7 +2,7 @@ package team.unstudio.scriptblock;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ScriptBlock extends JavaPlugin {
+public final class ScriptBlock extends JavaPlugin {
 	@Override
 	public final void onLoad() {
 
@@ -14,7 +14,7 @@ public class ScriptBlock extends JavaPlugin {
 	}
 
 	@Override
-	public void onDisable() {
+	public final void onDisable() {
 
 	}
 }
