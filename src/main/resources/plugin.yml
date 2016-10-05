@@ -1,0 +1,4 @@
+name: ScriptBlock-Reloaded
+main: team.unstudio.scriptblock.ScriptBlock
+version: 1.0.0-SNAPSHOT
+author: [UnknownDomain, mousesrc, ningwang747]
