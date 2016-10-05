@@ -14,12 +14,16 @@ public final class CommandSBinding implements CommandExecutor,TabCompleter{
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+		List<String> tabList;
 		switch (args.length) {
 		case 0:
-			return Arrays.asList("help","block","item");
+			tabList = Arrays.asList("help","block","item");
+			break;
 		default:
-			return Lists.newArrayList();
+			tabList = Lists.newArrayList();
+			break;
 		}
+		return tabList;
 	}
 
 	@Override

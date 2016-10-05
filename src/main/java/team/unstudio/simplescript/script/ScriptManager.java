@@ -1,11 +1,12 @@
 package team.unstudio.simplescript.script;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.bukkit.entity.Player;
+
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 public class ScriptManager {
 	
@@ -15,8 +16,8 @@ public class ScriptManager {
 		return INSTANCE;
 	}
 
-	private final Map<Player,Script> editing = new HashMap<>();
-	private final List<Script> scripts = new ArrayList<>();
+	private final Map<Player,Script> editing = Maps.newHashMap();
+	private final List<Script> scripts = Lists.newArrayList();
 	
 	public Map<Player, Script> getEditing() {
 		return editing;

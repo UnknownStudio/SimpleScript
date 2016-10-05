@@ -14,98 +14,82 @@ import team.unstudio.simplescript.script.ScriptManager;
 
 import com.google.common.collect.Lists;
 
-public final class CommandSScript implements CommandExecutor,TabCompleter{
+public final class CommandSScript implements CommandExecutor, TabCompleter {
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+		List<String> tabList;
 		switch (args.length) {
 		case 0:
-			return Arrays.asList("help","create","add","remove","delete","save","edit","view","reload");
+			tabList = Arrays.asList("help", "create", "add", "remove", "delete", "save", "edit", "view", "reload");
+			break;
 		default:
-			return Lists.newArrayList();
+			tabList = Lists.newArrayList();
+			break;
 		}
+		return tabList;
 	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if(!(sender instanceof Player)) {
+		if (!(sender instanceof Player)) {
 			sender.sendMessage("");
-			return true;
-		}
-		if(args.length==0){
-			
-		}
-		switch (args[0].toLowerCase()) {
-		case "create":
-			if(!sender.hasPermission("simplescript.script.create")) {
-				sender.sendMessage("");
+		} else if (args.length == 0) {
+			//
+		} else {
+			switch (args[0].toLowerCase()) {
+			case "create":
+				if (!sender.hasPermission("simplescript.script.create")) {
+					sender.sendMessage("");
+				} else if (args.length != 2) {
+					sender.sendMessage("");
+				} else {
+					ScriptManager.getInstance().getEditing().put((Player) sender, new Script(args[1]));
+					sender.sendMessage("");
+				}
+				break;
+			case "add":
+				if (!sender.hasPermission("simplescript.script.add")) {
+					sender.sendMessage("");
+				}
+				break;
+			case "remove":
+				if (!sender.hasPermission("simplescript.script.remove")) {
+					sender.sendMessage("");
+				}
+				break;
+			case "delete":
+				if (!sender.hasPermission("simplescript.script.delete")) {
+					sender.sendMessage("");
+				}
+				break;
+			case "save":
+				if (!sender.hasPermission("simplescript.script.save")) {
+					sender.sendMessage("");
+				}
+				break;
+			case "edit":
+				if (!sender.hasPermission("simplescript.script.edit")) {
+					sender.sendMessage("");
+				}
+				break;
+			case "view":
+				if (!sender.hasPermission("simplescript.script.view")) {
+					sender.sendMessage("");
+				}
+				break;
+			case "reload":
+				if (!sender.hasPermission("simplescript.reload")) {
+					sender.sendMessage("");
+				}
+				break;
+			case "help":
+			default:
+				if (!sender.hasPermission("simplescript.script.help")) {
+					sender.sendMessage("");
+				}
 				break;
 			}
-			
-			if(args.length!=2) {
-				sender.sendMessage("");
-				break;
-			}
-			
-			ScriptManager.getInstance().getEditing().put((Player) sender, new Script(args[1]));
-			sender.sendMessage("");
-			break;
-		case "add":
-			if(!sender.hasPermission("simplescript.script.add")) {
-				sender.sendMessage("");
-				break;
-			}
-			
-			break;
-		case "remove":
-			if(!sender.hasPermission("simplescript.script.remove")) {
-				sender.sendMessage("");
-				break;
-			}
-			
-			break;
-		case "delete":
-			if(!sender.hasPermission("simplescript.script.delete")) {
-				sender.sendMessage("");
-				break;
-			}
-			
-			break;
-		case "save":
-			if(!sender.hasPermission("simplescript.script.save")) {
-				sender.sendMessage("");
-				break;
-			}
-			
-			break;
-		case "edit":			
-			if(!sender.hasPermission("simplescript.script.edit")) {
-			sender.sendMessage("");
-			break;
-			}
-			
-			break;
-		case "view":
-			if(!sender.hasPermission("simplescript.script.view")) {
-				sender.sendMessage("");
-				break;
-			}
-			
-			break;
-		case "reload":
-			if(!sender.hasPermission("simplescript.reload")) {
-				sender.sendMessage("");
-				break;
-			}
-			
-			break;
-		case "help":
-		default:
-			if(!sender.hasPermission("simplescript.script.help")) {
-				sender.sendMessage("");
-				break;
-			}
-			break;
 		}
 		return true;
 	}
