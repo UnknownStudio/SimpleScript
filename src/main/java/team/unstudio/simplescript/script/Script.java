@@ -1,22 +1,25 @@
 package team.unstudio.simplescript.script;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
+import org.bukkit.entity.Player;
 
 public class Script implements ConfigurationSerializable {
 
 	static {
 		ConfigurationSerialization.registerClass(Script.class);
 	}
-
-	public Script(Map<String, Object> map) {
-	}
-
+	
 	@Override
 	public Map<String, Object> serialize() {
-		return null;
+		Map<String, Object> map = new HashMap<>();
+		map.put("name", name);
+		return map;
 	}
 
 	public static Script deserialize(Map<String, Object> map) {
@@ -25,5 +28,38 @@ public class Script implements ConfigurationSerializable {
 
 	public static Script valueOf(Map<String, Object> map) {
 		return deserialize(map);
+	}
+	
+	private String name;
+	private List<ScriptCommand> commands;
+	private boolean editing = false;
+
+	public Script(Map<String, Object> map) {
+		name = (String) map.get("name");
+	}
+	
+	public Script(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public boolean execute(Player player,Location location){
+		for(ScriptCommand command:commands) if(!command.execute(player, location)) return false;
+		return true;
+	}
+
+	public boolean isEditing() {
+		return editing;
+	}
+
+	public void setEditing(boolean editing) {
+		this.editing = editing;
 	}
 }
