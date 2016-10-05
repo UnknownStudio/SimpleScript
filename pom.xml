@@ -19,15 +19,15 @@
 				<name>ningwang747</name>
 				<email>ningwang2002@icloud.com</email>
 			</developer>
-            <developer>
-                <id>mousesrc</id>
-                <name>mousesrc</name>
-            </developer>
-            <developer>
-                <id>UnknownDomain</id>
-                <name>UnknownDomain</name>
-                <email>chenzhilins@qq.com</email>
-            </developer>
+            		<developer>
+                		<id>mousesrc</id>
+                		<name>mousesrc</name>
+            		</developer>
+            		<developer>
+                		<id>UnknownDomain</id>
+                		<name>UnknownDomain</name>
+                		<email>chenzhilins@qq.com</email>
+            		</developer>
 		</developers>
 	<licenses>
 		<license>
