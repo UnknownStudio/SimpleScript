@@ -9,7 +9,7 @@ import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
 
-import com.google.common.collect.Maps;
+import com.google.common.collect.ImmutableMap;
 
 public abstract class ScriptCommand implements ConfigurationSerializable {
 
@@ -27,10 +27,7 @@ public abstract class ScriptCommand implements ConfigurationSerializable {
 
 	@Override
 	public Map<String, Object> serialize() {
-		Map<String, Object> map = Maps.newHashMap();
-		map.put("operator", getOperator(this));
-		map.put("args", Arrays.asList(args));
-		return map;
+		return ImmutableMap.<String, Object>of("operator", getOperator(this), "args", Arrays.asList(args));
 	}
 
 	@SuppressWarnings("unchecked")
