@@ -9,6 +9,8 @@ public class Vault {
 	public static final Economy economy = setupEconomy();
 	
 	private static Economy setupEconomy() {
+		//Compressed from
+		/*
 		if (Bukkit.getServer().getPluginManager().getPlugin("Vault") == null) {
 			return null;
 		}
@@ -17,5 +19,9 @@ public class Vault {
 			return null;
 		}
 		return rsp.getProvider();
+		*/
+		return Bukkit.getServer().getPluginManager().getPlugin("Vault") == null
+				&& Bukkit.getServer().getServicesManager().getRegistration(Economy.class) == null ? null
+						: Bukkit.getServer().getServicesManager().getRegistration(Economy.class).getProvider();
 	}
 }
