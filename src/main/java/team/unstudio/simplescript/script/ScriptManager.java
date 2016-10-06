@@ -22,7 +22,7 @@ public final class ScriptManager {
 		return INSTANCE;
 	}
 
-	private final Map<Player, Script> editing = Maps.newHashMap();
+	private final Map<Player, Script> editing = Maps.newConcurrentMap();
 	private final List<Script> scripts = Lists.newArrayList();
 
 	private ScriptManager() {

@@ -8,9 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-import team.unstudio.simplescript.script.Script;
-import team.unstudio.simplescript.script.ScriptManager;
-
 import com.google.common.collect.ImmutableList;
 
 public final class CommandSScript implements CommandExecutor, TabCompleter {
