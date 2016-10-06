@@ -1,6 +1,5 @@
 package team.unstudio.simplescript.command;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -12,7 +11,7 @@ import org.bukkit.entity.Player;
 import team.unstudio.simplescript.script.Script;
 import team.unstudio.simplescript.script.ScriptManager;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.ImmutableList;
 
 public final class CommandSScript implements CommandExecutor, TabCompleter {
 
@@ -21,10 +20,10 @@ public final class CommandSScript implements CommandExecutor, TabCompleter {
 		List<String> tabList;
 		switch (args.length) {
 		case 0:
-			tabList = Arrays.asList("help", "create", "add", "remove", "delete", "save", "edit", "view", "reload");
+			tabList = ImmutableList.<String>of("help", "create", "add", "remove", "delete", "save", "edit", "view", "reload");
 			break;
 		default:
-			tabList = Lists.newArrayList();
+			tabList = ImmutableList.<String>of();
 			break;
 		}
 		return tabList;

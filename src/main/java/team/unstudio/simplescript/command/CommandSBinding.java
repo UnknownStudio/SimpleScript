@@ -8,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
 public final class CommandSBinding implements CommandExecutor, TabCompleter {
@@ -17,10 +18,10 @@ public final class CommandSBinding implements CommandExecutor, TabCompleter {
 		List<String> tabList;
 		switch (args.length) {
 		case 0:
-			tabList = Arrays.asList("help", "block", "item");
+			tabList = ImmutableList.<String>of("help", "block", "item");
 			break;
 		default:
-			tabList = Lists.newArrayList();
+			tabList = ImmutableList.<String>of();
 			break;
 		}
 		return tabList;
