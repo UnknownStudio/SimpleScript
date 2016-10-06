@@ -1,7 +1,6 @@
 package team.unstudio.simplescript.support;
 
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.RegisteredServiceProvider;
 
 import net.milkbowl.vault.economy.Economy;
 
