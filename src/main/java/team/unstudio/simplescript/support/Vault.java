@@ -8,14 +8,20 @@ import net.milkbowl.vault.economy.Economy;
 public class Vault {
 	@SuppressWarnings("unused")
 	private boolean setupEconomy() {
+		boolean vault;
 		if (Bukkit.getServer().getPluginManager().getPlugin("Vault") == null) {
-			return false;
+			vault = false;
+		} else {
+			RegisteredServiceProvider<Economy> rsp = Bukkit.getServer().getServicesManager()
+					.getRegistration(Economy.class);
+			if (rsp == null) {
+				vault = false;
+			} else if (rsp.getProvider() == null) {
+				vault = false;
+			} else {
+				vault = true;
+			}
 		}
-		RegisteredServiceProvider<Economy> rsp = Bukkit.getServer().getServicesManager().getRegistration(Economy.class);
-		if (rsp == null) {
-			return false;
-		}
-		Economy economy = rsp.getProvider();
-		return economy != null;
+		return vault;
 	}
 }
