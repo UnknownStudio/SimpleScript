@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
 
 import com.google.common.collect.ImmutableList;
 
@@ -27,8 +28,43 @@ public final class CommandSBinding implements CommandExecutor, TabCompleter {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		// TODO 自动生成的方法存根
+		if (!(sender instanceof Player)) {
+			sender.sendMessage("");
+		} else if (!sender.hasPermission("simplescript.script.binding")) {
+			sender.sendMessage("");
+		} else if (args.length == 0) {
+			displayHelp(sender);
+		} else {
+			switch (args[0].toLowerCase()) {
+			case "block":
+				if (sender.hasPermission("simplescript.script.binding.block")) {
+					// TODO block
+				} else {
+					sender.sendMessage("");
+				}
+				break;
+			case "item":
+				if (sender.hasPermission("simplescript.script.binding.item")) {
+					// TODO item
+				} else {
+					sender.sendMessage("");
+				}
+				break;
+			// "default" is including "help"
+			default:
+				displayHelp(sender);
+				break;
+			}
+		}
 		return true;
+	}
+
+	public void displayHelp(CommandSender sender) {
+		if (sender.hasPermission("simplescript.script.binding.help")) {
+			// TODO display help
+		} else {
+			sender.sendMessage("");
+		}
 	}
 
 }
