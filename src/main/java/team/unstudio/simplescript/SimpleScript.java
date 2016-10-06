@@ -9,44 +9,44 @@ import team.unstudio.simplescript.listener.SSListener;
 import team.unstudio.simplescript.script.ScriptManager;
 
 public final class SimpleScript extends JavaPlugin {
-	
-	//plugin instance
+
+	// plugin instance
 	public static SimpleScript INSTANCE;
-	
+
 	@Override
 	public final void onLoad() {
-		//init instance
+		// init instance
 		INSTANCE = this;
 	}
 
 	@Override
 	public final void onEnable() {
-		//Load configuration
+		// Load configuration
 		saveDefaultConfig();
 		SSConfig.reload();
-		
-		//Register "sscript" of TabCompleter and CommandExecutor
+
+		// Register "sscript" of TabCompleter and CommandExecutor
 		CommandSScript commandSScript = new CommandSScript();
 		getCommand("sscript").setExecutor(commandSScript);
 		getCommand("sscript").setTabCompleter(commandSScript);
-		
-		//Register "sbinding" of TabCompleter and CommandExecutor
+
+		// Register "sbinding" of TabCompleter and CommandExecutor
 		CommandSBinding commandSBinding = new CommandSBinding();
 		getCommand("sbinding").setExecutor(commandSBinding);
 		getCommand("sbinding").setTabCompleter(commandSBinding);
-		
-		//Register Listener
+
+		// Register Listener
 		getServer().getPluginManager().registerEvents(new SSListener(), this);
-		
-		//get "ScriptManager" instance and load
+
+		// get "ScriptManager" instance and load
 		ScriptManager.getInstance().reload();
 	}
 
 	@Override
 	public final void onDisable() {
-		//get "ScriptManager" instance save
+		// get "ScriptManager" instance save
 		ScriptManager.getInstance().save();
-		//Unregister Listener
+		// Unregister Listener
 		HandlerList.unregisterAll();
 	}
 }

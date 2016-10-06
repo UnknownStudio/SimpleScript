@@ -10,14 +10,14 @@ import org.bukkit.command.TabCompleter;
 
 import com.google.common.collect.Lists;
 
-public final class CommandSBinding implements CommandExecutor,TabCompleter{
+public final class CommandSBinding implements CommandExecutor, TabCompleter {
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
 		List<String> tabList;
 		switch (args.length) {
 		case 0:
-			tabList = Arrays.asList("help","block","item");
+			tabList = Arrays.asList("help", "block", "item");
 			break;
 		default:
 			tabList = Lists.newArrayList();

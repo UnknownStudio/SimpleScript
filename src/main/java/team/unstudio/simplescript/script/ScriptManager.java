@@ -15,18 +15,19 @@ import com.google.common.collect.Maps;
 import team.unstudio.simplescript.SimpleScript;
 
 public final class ScriptManager {
-	
+
 	private static final ScriptManager INSTANCE = new ScriptManager();
-	
+
 	public static ScriptManager getInstance() {
 		return INSTANCE;
 	}
 
-	private final Map<Player,Script> editing = Maps.newHashMap();
+	private final Map<Player, Script> editing = Maps.newHashMap();
 	private final List<Script> scripts = Lists.newArrayList();
-	
-	private ScriptManager() {}
-	
+
+	private ScriptManager() {
+	}
+
 	public Map<Player, Script> getEditing() {
 		return editing;
 	}
@@ -34,44 +35,48 @@ public final class ScriptManager {
 	public List<Script> getScripts() {
 		return scripts;
 	}
-	
-	public Script getScript(String name){
-		for(Script script:scripts) if(script.getName().equalsIgnoreCase(name)) return script;
+
+	public Script getScript(String name) {
+		for (Script script : scripts)
+			if (script.getName().equalsIgnoreCase(name))
+				return script;
 		return null;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public synchronized void reload(){
+	public synchronized void reload() {
 		scripts.clear();
-		
+
 		final File file = new File(SimpleScript.INSTANCE.getDataFolder(), "script.yml");
-		
-		if(!file.getParentFile().exists())file.getParentFile().mkdirs();
-		
-		if(!file.exists())
+
+		if (!file.getParentFile().exists())
+			file.getParentFile().mkdirs();
+
+		if (!file.exists())
 			try {
 				file.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		
+
 		FileConfiguration config = YamlConfiguration.loadConfiguration(file);
-		
-		scripts.addAll((List<Script>)config.getList("scripts"));
+
+		scripts.addAll((List<Script>) config.getList("scripts"));
 	}
-	
-	public synchronized void save(){
+
+	public synchronized void save() {
 		final File file = new File(SimpleScript.INSTANCE.getDataFolder(), "script.yml");
-		
-		if(!file.getParentFile().exists())file.getParentFile().mkdirs();
-		
-		if(!file.exists())
+
+		if (!file.getParentFile().exists())
+			file.getParentFile().mkdirs();
+
+		if (!file.exists())
 			try {
 				file.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		
+
 		FileConfiguration config = YamlConfiguration.loadConfiguration(file);
 		config.set("scripts", scripts);
 		try {

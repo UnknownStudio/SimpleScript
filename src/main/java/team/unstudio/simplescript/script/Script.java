@@ -15,7 +15,7 @@ public class Script implements ConfigurationSerializable {
 	static {
 		ConfigurationSerialization.registerClass(Script.class);
 	}
-	
+
 	@Override
 	public Map<String, Object> serialize() {
 		Map<String, Object> map = Maps.newHashMap();
@@ -31,7 +31,7 @@ public class Script implements ConfigurationSerializable {
 	public static Script valueOf(Map<String, Object> map) {
 		return deserialize(map);
 	}
-	
+
 	private String name;
 	private List<ScriptCommand> commands;
 	private boolean editing = false;
@@ -41,7 +41,7 @@ public class Script implements ConfigurationSerializable {
 		name = (String) map.get("name");
 		commands.addAll((List<? extends ScriptCommand>) map.get("commands"));
 	}
-	
+
 	public Script(String name) {
 		this.name = name;
 	}
@@ -53,9 +53,11 @@ public class Script implements ConfigurationSerializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public boolean execute(Player player,Location location){
-		for(ScriptCommand command:commands) if(!command.execute(player, location)) return false;
+
+	public boolean execute(Player player, Location location) {
+		for (ScriptCommand command : commands)
+			if (!command.execute(player, location))
+				return false;
 		return true;
 	}
 
