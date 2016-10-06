@@ -6,16 +6,16 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import net.milkbowl.vault.economy.Economy;
 
 public class Vault {
-	@SuppressWarnings("unused")
-	private boolean setupEconomy() {
+	public static final Economy economy = setupEconomy();
+	
+	private static Economy setupEconomy() {
 		if (Bukkit.getServer().getPluginManager().getPlugin("Vault") == null) {
-			return false;
+			return null;
 		}
 		RegisteredServiceProvider<Economy> rsp = Bukkit.getServer().getServicesManager().getRegistration(Economy.class);
 		if (rsp == null) {
-			return false;
+			return null;
 		}
-		Economy economy = rsp.getProvider();
-		return economy != null;
+		return rsp.getProvider();
 	}
 }
