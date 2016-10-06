@@ -23,6 +23,7 @@ public final class ScriptManager {
 	}
 
 	private final Map<Player, Script> editing = Maps.newConcurrentMap();
+	
 	private final List<Script> scripts = Lists.newArrayList();
 
 	private ScriptManager() {
@@ -37,9 +38,13 @@ public final class ScriptManager {
 	}
 
 	public Script getScript(String name) {
+		// need fix
+		/*
 		for (Script script : scripts)
 			if (script.getName().equalsIgnoreCase(name))
 				return script;
+		return null;
+		*/
 		return null;
 	}
 

@@ -8,7 +8,7 @@ import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
 
-import com.google.common.collect.Maps;
+import com.google.common.collect.ImmutableMap;
 
 public class Script implements ConfigurationSerializable {
 
@@ -18,10 +18,7 @@ public class Script implements ConfigurationSerializable {
 
 	@Override
 	public Map<String, Object> serialize() {
-		Map<String, Object> map = Maps.newHashMap();
-		map.put("name", name);
-		map.put("commands", commands);
-		return map;
+		return ImmutableMap.<String, Object>of("name", name, "commands", commands);
 	}
 
 	public static Script deserialize(Map<String, Object> map) {
