@@ -10,10 +10,12 @@ import team.unstudio.simplescript.script.ScriptManager;
 
 public final class SimpleScript extends JavaPlugin {
 	
+	//plugin instance
 	public static SimpleScript INSTANCE;
 	
 	@Override
 	public final void onLoad() {
+		//init instance
 		INSTANCE = this;
 	}
 
@@ -36,12 +38,15 @@ public final class SimpleScript extends JavaPlugin {
 		//Register Listener
 		getServer().getPluginManager().registerEvents(new SSListener(), this);
 		
+		//get "ScriptManager" instance and load
 		ScriptManager.getInstance().reload();
 	}
 
 	@Override
 	public final void onDisable() {
+		//get "ScriptManager" instance save
 		ScriptManager.getInstance().save();
+		//Unregister Listener
 		HandlerList.unregisterAll();
 	}
 }
