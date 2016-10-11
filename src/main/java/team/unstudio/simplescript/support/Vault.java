@@ -5,24 +5,21 @@ import org.bukkit.Server;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.permission.Permission;
 
 public class Vault {
 	public static final Economy economy = setupEconomy();
+	public static final Permission permission = setupPermission();
 
 	private static Economy setupEconomy() {
-		// Compressed from
-		/*
-		* if (Bukkit.getServer().getPluginManager().getPlugin("Vault") == null) {
-		*		return null;
-		* }
-		* RegisteredServiceProvider<Economy> rsp = Bukkit.getServer().getServicesManager().getRegistration(Economy.class);
-		* if (rsp == null) {
-		*		return null;
-		* }
-		* return rsp.getProvider();
-		*/
 		Server server = Bukkit.getServer();
 		RegisteredServiceProvider<Economy> rsp = server.getServicesManager().getRegistration(Economy.class);
+		return server.getPluginManager().getPlugin("Vault") == null && rsp == null ? null : rsp.getProvider();
+	}
+	
+	private static Permission setupPermission() {
+		Server server = Bukkit.getServer();
+		RegisteredServiceProvider<Permission> rsp = server.getServicesManager().getRegistration(Permission.class);
 		return server.getPluginManager().getPlugin("Vault") == null && rsp == null ? null : rsp.getProvider();
 	}
 }

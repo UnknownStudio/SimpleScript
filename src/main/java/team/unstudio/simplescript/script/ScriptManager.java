@@ -38,13 +38,9 @@ public final class ScriptManager {
 	}
 
 	public Script getScript(String name) {
-		// need fix
-		/*
 		for (Script script : scripts)
-			if (script.getName().equalsIgnoreCase(name))
+			if (script.getName().equals(name)) 
 				return script;
-		return null;
-		*/
 		return null;
 	}
 

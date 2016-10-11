@@ -3,22 +3,15 @@ package team.unstudio.simplescript.script;
 import java.util.List;
 import java.util.Map;
 
-import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
-import org.bukkit.configuration.serialization.ConfigurationSerialization;
-import org.bukkit.entity.Player;
-
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Lists;
 
 public class Script implements ConfigurationSerializable {
-
-	static {
-		ConfigurationSerialization.registerClass(Script.class);
-	}
-
+	
 	@Override
 	public Map<String, Object> serialize() {
-		return ImmutableMap.<String, Object>of("name", name, "commands", commands);
+		return ImmutableMap.<String, Object>of("name", name, "commands", script);
 	}
 
 	public static Script deserialize(Map<String, Object> map) {
@@ -30,13 +23,12 @@ public class Script implements ConfigurationSerializable {
 	}
 
 	private String name;
-	private List<ScriptCommand> commands;
-	private boolean editing = false;
+	private List<String> script = Lists.newArrayList();
 
 	@SuppressWarnings("unchecked")
 	public Script(Map<String, Object> map) {
 		name = (String) map.get("name");
-		commands.addAll((List<? extends ScriptCommand>) map.get("commands"));
+		if(map.containsKey("script")) script.addAll((List<String>) map.get("script"));
 	}
 
 	public Script(String name) {
@@ -50,19 +42,8 @@ public class Script implements ConfigurationSerializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public boolean execute(Player player, Location location) {
-		for (ScriptCommand command : commands)
-			if (!command.execute(player, location))
-				return false;
-		return true;
-	}
-
-	public boolean isEditing() {
-		return editing;
-	}
-
-	public void setEditing(boolean editing) {
-		this.editing = editing;
+	
+	public List<String> getScriptLines() {
+		return script;
 	}
 }
