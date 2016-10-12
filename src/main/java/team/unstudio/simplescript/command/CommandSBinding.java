@@ -54,9 +54,9 @@ public final class CommandSBinding implements CommandExecutor, TabCompleter {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("");
+			sender.sendMessage(/*Only player can use this command*/"");
 		} else if (!sender.hasPermission("simplescript.script.binding")) {
-			sender.sendMessage("");
+			sender.sendMessage(/*Access denied*/"");
 		} else if (args.length == 0) {
 			displayHelp(sender);
 		} else {
@@ -65,14 +65,14 @@ public final class CommandSBinding implements CommandExecutor, TabCompleter {
 				if (sender.hasPermission("simplescript.script.binding.block")) {
 					// TODO block
 				} else {
-					sender.sendMessage("");
+					sender.sendMessage(/*Access denied*/"");
 				}
 				break;
 			case "item":
 				if (sender.hasPermission("simplescript.script.binding.item")) {
 					// TODO item
 				} else {
-					sender.sendMessage("");
+					sender.sendMessage(/*Access denied*/"");
 				}
 				break;
 			// "default" is including "help"
@@ -88,7 +88,7 @@ public final class CommandSBinding implements CommandExecutor, TabCompleter {
 		if (sender.hasPermission("simplescript.script.binding.help")) {
 			// TODO display help
 		} else {
-			sender.sendMessage("");
+			sender.sendMessage(/*Access denied*/"");
 		}
 	}
 
