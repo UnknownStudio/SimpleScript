@@ -32,15 +32,19 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 public final class SSListener implements Listener {
-	
+
 	@EventHandler(priority = EventPriority.MONITOR)
 	public final void onPlayerMove(PlayerMoveEvent evt) {
-		
+		if (!evt.isCancelled() && evt.getPlayer().hasPermission("")) {
+			// TODO WalkBlock
+		}
 	}
-	
+
 	@EventHandler(priority = EventPriority.MONITOR)
 	public final void onPlayerClick(PlayerInteractEvent evt) {
-		
+		if (!evt.isCancelled() && evt.getPlayer().hasPermission("")) {
+			// TODO ClickBlock
+		}
 	}
 
 }
