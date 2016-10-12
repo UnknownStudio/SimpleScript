@@ -1,3 +1,28 @@
+/*
+ * Copyright (c) 2016, Unknown Domain. All rights reserved.
+ * GUN GPLv3. Use is subject to license terms.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 package team.unstudio.simplescript.script;
 
 import java.util.List;
@@ -8,7 +33,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 
 public class Script implements ConfigurationSerializable {
-	
+
 	@Override
 	public Map<String, Object> serialize() {
 		return ImmutableMap.<String, Object>of("name", name, "commands", script);
@@ -28,7 +53,8 @@ public class Script implements ConfigurationSerializable {
 	@SuppressWarnings("unchecked")
 	public Script(Map<String, Object> map) {
 		name = (String) map.get("name");
-		if(map.containsKey("script")) script.addAll((List<String>) map.get("script"));
+		if (map.containsKey("script"))
+			script.addAll((List<String>) map.get("script"));
 	}
 
 	public Script(String name) {
@@ -42,7 +68,7 @@ public class Script implements ConfigurationSerializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public List<String> getScriptLines() {
 		return script;
 	}

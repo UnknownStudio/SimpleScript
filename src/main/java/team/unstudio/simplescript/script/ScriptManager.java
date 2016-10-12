@@ -1,3 +1,28 @@
+/*
+ * Copyright (c) 2016, Unknown Domain. All rights reserved.
+ * GUN GPLv3. Use is subject to license terms.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 package team.unstudio.simplescript.script;
 
 import java.io.File;
@@ -23,7 +48,7 @@ public final class ScriptManager {
 	}
 
 	private final Map<Player, Script> editing = Maps.newConcurrentMap();
-	
+
 	private final List<Script> scripts = Lists.newArrayList();
 
 	private ScriptManager() {
@@ -39,7 +64,7 @@ public final class ScriptManager {
 
 	public Script getScript(String name) {
 		for (Script script : scripts)
-			if (script.getName().equals(name)) 
+			if (script.getName().equals(name))
 				return script;
 		return null;
 	}

@@ -1,3 +1,28 @@
+/*
+ * Copyright (c) 2016, Unknown Domain. All rights reserved.
+ * GUN GPLv3. Use is subject to license terms.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 package team.unstudio.simplescript;
 
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
@@ -11,8 +36,8 @@ import team.unstudio.simplescript.script.Script;
 import team.unstudio.simplescript.script.ScriptManager;
 
 public final class SimpleScript extends JavaPlugin {
-	
-	static{
+
+	static {
 		ConfigurationSerialization.registerClass(Script.class);
 	}
 

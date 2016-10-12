@@ -1,3 +1,28 @@
+/*
+ * Copyright (c) 2016, Unknown Domain. All rights reserved.
+ * GUN GPLv3. Use is subject to license terms.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 package team.unstudio.simplescript.command;
 
 import java.util.List;
@@ -17,7 +42,8 @@ public final class CommandSScript implements CommandExecutor, TabCompleter {
 		List<String> tabList;
 		switch (args.length) {
 		case 0:
-			tabList = ImmutableList.<String>of("help", "create", "add", "remove", "delete", "save", "edit", "view", "reload");
+			tabList = ImmutableList.<String>of("help", "create", "add", "remove", "delete", "save", "edit", "view",
+					"reload");
 			break;
 		default:
 			tabList = ImmutableList.<String>of();
