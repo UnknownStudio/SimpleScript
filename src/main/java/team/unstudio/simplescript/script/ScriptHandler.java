@@ -25,14 +25,19 @@
 
 package team.unstudio.simplescript.script;
 
+import java.util.Map;
+
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+
+import com.google.common.collect.Maps;
 
 public class ScriptHandler {
 
 	private final Player player;
 	private final Location location;
 	private final Script script;
+	private final Map<String,String> placeholderMap = Maps.newHashMap();
 
 	private int scriptLineIndex = 0;
 
@@ -67,5 +72,9 @@ public class ScriptHandler {
 
 		}
 		return true;
+	}
+
+	public Map<String,String> getPlaceholderMap() {
+		return placeholderMap;
 	}
 }
